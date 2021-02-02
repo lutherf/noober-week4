@@ -13,13 +13,6 @@ async function pageLoaded() {
   
   // 🔥 start here: write code to loop through the rides  
   let passenger
-  // let passengerName
-  // let passengerPhoneNumber
-  // let numberOfPassengers
-  // let PickupAddressLine1
-  // let PickupAddressLine2
-  // let DropoffAddressLine1
-  // let DropoffAddressLine2
   
   for(let i=0; i<json.length; i++) {
   let ride = json[i]
