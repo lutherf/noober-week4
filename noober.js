@@ -11,11 +11,20 @@ async function pageLoaded() {
   // writes the returned JSON to the console
   console.dir(json)
   
-  // 🔥 start here: write code to loop through the rides   
+  // 🔥 start here: write code to loop through the rides  
+  let passenger
+  // let passengerName
+  // let passengerPhoneNumber
+  // let numberOfPassengers
+  // let PickupAddressLine1
+  // let PickupAddressLine2
+  // let DropoffAddressLine1
+  // let DropoffAddressLine2
+  
   for(let i=0; i<json.length; i++) {
   let ride = json[i]
   let outputElement = document.querySelector('.rides')
-  console.log(ride)
+  // console.log(ride)
     
   for (let n=0; n<ride.length; n++) {
     passenger = ride[n]
@@ -34,6 +43,35 @@ async function pageLoaded() {
   <span>${levelOfService}</span>
   </h1>
   `)
+  
+  outputElement.insertAdjacentHTML("beforeend",
+  `<div class="border-4 border-gray-900 p-4 my-4 text-left">
+  <div class="flex">
+    <div class="w-1/2">
+      <h2 class="text-2xl py-1">${passenger.passengerDetails.first} ${passenger.passengerDetails.last}</h2>
+      <p class="font-bold text-gray-600">${passenger.passengerDetails.phoneNumber}</p>
+    </div>
+    <div class="w-1/2 text-right">
+      <span class="rounded-xl bg-gray-600 text-white p-2">
+        ${passenger.numberOfPassengers} passengers
+      </span>
+    </div>
+  </div>
+  <div class="mt-4 flex">
+    <div class="w-1/2">
+      <div class="text-sm font-bold text-gray-600">PICKUP</div>
+      <p>${passenger.pickupLocation.address}</p>
+      <p>${passenger.pickupLocation.city} ${passenger.pickupLocation.state} ${passenger.pickupLocation.zip}</p>
+    </div>
+    <div class="w-1/2">
+      <div class="text-sm font-bold text-gray-600">DROPOFF</div>
+      <p>${passenger.dropoffLocation.address}</p>
+      <p>${passenger.dropoffLocation.city} ${passenger.dropoffLocation.state} ${passenger.dropoffLocation.zip}</p>
+    </div>
+  </div>
+</div>`
+  )
+
   }
 
   }
